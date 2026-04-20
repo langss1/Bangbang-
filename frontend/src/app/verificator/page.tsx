@@ -67,6 +67,8 @@ interface QueueItem {
   status: AssetState;
   valuationUpdatePending?: boolean;
   pendingValuation?: number;
+  documentUrl?: string;
+  txHash?: string;
 }
 
 interface MiningState {

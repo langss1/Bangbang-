@@ -67,11 +67,15 @@ interface UserAccount {
 }
 
 interface AuditEntry {
+  id: number;
   assetId: number;
   assetName: string;
   action: 'Verified' | 'Rejected';
   timestamp: string;
   fee: string;
+  txHash?: string;
+  verificator?: string;
+  institution?: string;
 }
 
 function loadActiveVerificators(): ActiveVerificator[] {
