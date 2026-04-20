@@ -89,6 +89,7 @@ interface VerifyLog {
   fee: string;
   proofHash?: string;
   nonce?: number;
+  txHash?: string;
 }
 
 // ─── Mining config ────────────────────────────────────────────────────────────
@@ -339,7 +340,7 @@ export default function VerificatorPage() {
       proofHash: m.proofHash,
       nonce: m.nonce,
       txHash: verifyTxHash,
-      verificator: wallet, // Alamat wallet verifikator
+      verificator: wallet, 
       institution: currentAccount?.institution || 'Unknown'
     };
 
