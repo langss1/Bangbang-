@@ -33,6 +33,15 @@
  *
  * SQL SCHEMA (jalankan di Supabase SQL Editor):
  *
+ *   CREATE TABLE users (
+ *     wallet_address TEXT PRIMARY KEY,
+ *     display_name   TEXT,
+ *     email          TEXT UNIQUE,
+ *     avatar_url     TEXT,
+ *     password       TEXT, -- optional if using hashed password
+ *     created_at     TIMESTAMPTZ DEFAULT NOW()
+ *   );
+ *
  *   CREATE TABLE verificator_accounts (
  *     username      TEXT PRIMARY KEY,
  *     name          TEXT NOT NULL,
@@ -47,10 +56,13 @@
  *     asset_id      BIGINT PRIMARY KEY,
  *     asset_name    TEXT NOT NULL,
  *     category      TEXT NOT NULL,
+ *     status        TEXT DEFAULT 'Pending',
+ *     valuation     NUMERIC DEFAULT 0,
  *     owner_email   TEXT,
  *     owner_wallet  TEXT NOT NULL,
  *     document_hash TEXT NOT NULL,
  *     document_url  TEXT,
+ *     tx_hash       TEXT,
  *     created_at    TIMESTAMPTZ DEFAULT NOW()
  *   );
  *
